@@ -1,0 +1,186 @@
+{% extends 'menu/base.html' %}
+{% load tz %}
+{% block title %}Home - Restaurant{% endblock %}
+{% block extra_head %}
+    <style>
+        .hero {
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            height: 700px;
+            color: #fff;
+        }
+        .hero-gold {
+            background: linear-gradient(120deg, rgba(255,215,0,0.18) 0%, rgba(242,81,97,0.10) 100%);
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 2;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 3;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 4;
+            text-align: center;
+        }
+        .hero-btn {
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+            border: 2px solid rgba(255,255,255,0.4);
+            backdrop-filter: blur(2px);
+            font-weight: 600;
+            transition: background 0.3s, color 0.3s, border 0.3s;
+        }
+        .hero-btn:hover, .hero-btn:focus {
+            background: rgba(255,255,255,0.35);
+            color: #222;
+            border: 2px solid #fff;
+        }
+        .legacy-badge {
+            background: #ffd700;
+            color: #222;
+            font-weight: 600;
+            border-radius: 1rem;
+            padding: 0.5rem 1.5rem;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 8px rgba(255,215,0,0.13);
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+        .signature-gallery img {
+            border-radius: 1.2rem;
+            box-shadow: 0 4px 24px 0 rgba(31,38,135,0.13);
+            margin-bottom: 1.5rem;
+        }
+        .premium-callout {
+            background: linear-gradient(90deg, #fffbe6 0%, #ffe5ec 100%);
+            border-left: 5px solid #ffd700;
+            border-radius: 1rem;
+            padding: 2rem 1.5rem;
+            margin-bottom: 2.5rem;
+            font-size: 1.15rem;
+            color: #222;
+            box-shadow: 0 2px 8px rgba(255,215,0,0.08);
+        }
+        .testimonial-carousel {
+            background: #fffbe6;
+            border-radius: 1.2rem;
+            box-shadow: 0 2px 8px rgba(255,215,0,0.08);
+            padding: 2rem 1rem 1.5rem 1rem;
+        }
+        .testimonial-carousel .carousel-item {
+            min-height: 120px;
+        }
+        .testimonial-carousel .bi-quote {
+            color: #ffd700;
+            font-size: 2rem;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="hero mb-5">
+        <div class="hero-gold"></div>
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <span class="legacy-badge mb-4">Since 2005 &mdash; Award-Winning Excellence</span>
+                <h1 class="display-2 fw-bold mb-3">Welcome to RestoDelight</h1>
+                <p class="lead fs-3 mb-4">Where every meal is a celebration of taste, tradition, and togetherness.</p>
+                <a href="/book-table/" class="btn btn-lg mt-3 hero-btn">Book a Table</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <section class="mb-5">
+            <div class="row align-items-center mb-5 pb-4 border-bottom">
+                <div class="col-md-7 mb-4 mb-md-0">
+                    <h2 class="fw-bold mb-3">A Legacy of Hospitality</h2>
+                    <p class="lead mb-3">For nearly two decades, RestoDelight has set the standard for fine dining in Thrissur. Our journey is marked by passion, innovation, and a relentless pursuit of excellence.</p>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><i class="bi bi-trophy-fill text-warning me-2"></i><strong>Best New Restaurant</strong> (2010, Thrissur)</li>
+                        <li class="mb-2"><i class="bi bi-people-fill text-warning me-2"></i>100,000+ delighted guests</li>
+                        <li class="mb-2"><i class="bi bi-award-fill text-warning me-2"></i>Celebrated for premium service &amp; ambiance</li>
+                    </ul>
+                </div>
+                <div class="col-md-5 text-center">
+                    <img src="/static/menu/images/steak.jpeg" alt="Legacy Dish" class="img-fluid rounded shadow-lg" style="max-height:320px; object-fit:cover;">
+                </div>
+            </div>
+        </section>
+        <section class="mb-5 signature-gallery">
+            <h2 class="text-center mb-4">Signature Dishes</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-6 col-md-3">
+                    <img src="/static/menu/images/burger.jpeg" alt="Classic Burger" class="img-fluid">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="/static/menu/images/cheesecake.jpeg" alt="Cheesecake" class="img-fluid">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="/static/menu/images/Bruschetta.jpeg" alt="Bruschetta" class="img-fluid">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="/static/menu/images/steak.jpeg" alt="Grilled Chicken Steak" class="img-fluid">
+                </div>
+            </div>
+        </section>
+        <section class="mb-5">
+            <div class="premium-callout text-center">
+                <h3 class="fw-bold mb-2" style="color:#f25161;"><i class="bi bi-star-fill me-2"></i>Premium Service, Always</h3>
+                <p class="mb-0">At RestoDelight, every guest is family. Our team is dedicated to making your experience unforgettable, from the moment you arrive to the last bite of dessert.</p>
+            </div>
+        </section>
+        <section class="mb-5">
+            <h2 class="text-center mb-4">What Our Customers Say</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="testimonial-carousel">
+                        <div id="homeTestimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="text-center px-2">
+                                        <i class="bi bi-quote text-warning"></i>
+                                        <p class="fst-italic mb-1">“Absolutely the best dining experience! The food was amazing and the staff were so friendly.”</p>
+                                        <div class="text-end small text-muted">- Aathmaj Leo</div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="text-center px-2">
+                                        <i class="bi bi-quote text-warning"></i>
+                                        <p class="fst-italic mb-1">“A hidden gem! The atmosphere is cozy and the menu is full of delicious surprises.”</p>
+                                        <div class="text-end small text-muted">- Akshay K.</div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="text-center px-2">
+                                        <i class="bi bi-quote text-warning"></i>
+                                        <p class="fst-italic mb-1">“The legacy and service at RestoDelight are unmatched. We keep coming back!”</p>
+                                        <div class="text-end small text-muted">- Meera D.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#homeTestimonialCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#homeTestimonialCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="text-center mb-5">
+            <h3>Ready to taste something amazing?</h3>
+            <a href="/menu/" class="btn btn-success btn-lg mt-2">Our Menu</a>
+        </section>
+    </div>
+{% endblock %} 

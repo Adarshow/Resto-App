@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Classic Burger",
+    "description": "Juicy beef patty with lettuce, tomato, and cheese.",
+    "price": 120,
+    "category": "Mains",
+    "image": "/static/menu/images/burger.jpeg"
+  },
+  {
+    "id": 2,
+    "name": "Grilled Chicken Steak",
+    "description": "Tender grilled chicken breast served with vegetables and sauce.",
+    "price": 140,
+    "category": "Mains",
+    "image": "/static/menu/images/steak.jpeg"
+  },
+  {
+    "id": 12,
+    "name": "Spaghetti Bolognese",
+    "description": "Pasta with rich meat sauce and parmesan cheese.",
+    "price": 110,
+    "category": "Mains",
+    "image": "/static/menu/images/sphaghetti.jpeg"
+  },
+  {
+    "id": 3,
+    "name": "Garlic Bread",
+    "description": "Toasted bread with garlic butter.",
+    "price": 50,
+    "category": "Starters",
+    "image": "/static/menu/images/bread.jpeg"
+  },
+  {
+    "id": 4,
+    "name": "Bruschetta",
+    "description": "Grilled bread topped with diced tomatoes, garlic, basil, and olive oil.",
+    "price": 55,
+    "category": "Starters",
+    "image": "/static/menu/images/bruschetta.jpeg"
+  },
+  {
+    "id": 13,
+    "name": "Stuffed Mushrooms",
+    "description": "Mushrooms filled with cheese and herbs, baked to perfection.",
+    "price": 60,
+    "category": "Starters",
+    "image": "/static/menu/images/mushroom.jpeg"
+  },
+  {
+    "id": 5,
+    "name": "Caesar Salad",
+    "description": "Crisp romaine lettuce with Caesar dressing and croutons.",
+    "price": 80,
+    "category": "Salads",
+    "image": "/static/menu/images/Caesar Salad.jpeg"
+  },
+  {
+    "id": 6,
+    "name": "Greek Salad",
+    "description": "Fresh salad with tomatoes, cucumbers, olives, feta cheese, and olive oil.",
+    "price": 85,
+    "category": "Salads",
+    "image": "/static/menu/images/greek salad.jpeg"
+  },
+  {
+    "id": 14,
+    "name": "Caprese Salad",
+    "description": "Tomato, mozzarella, and basil drizzled with olive oil.",
+    "price": 90,
+    "category": "Salads",
+    "image": "/static/menu/images/Caprese Salad.jpeg"
+  },
+  {
+    "id": 7,
+    "name": "Chocolate Lava Cake",
+    "description": "Warm chocolate cake with a gooey center.",
+    "price": 70,
+    "category": "Desserts",
+    "image": "/static/menu/images/lavacake.jpeg"
+  },
+  {
+    "id": 8,
+    "name": "Tiramisu",
+    "description": "Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream.",
+    "price": 90,
+    "category": "Desserts",
+    "image": "/static/menu/images/tiramisu.jpeg"
+  },
+  {
+    "id": 15,
+    "name": "Cheesecake",
+    "description": "Creamy cheesecake with a buttery biscuit base.",
+    "price": 95,
+    "category": "Desserts",
+    "image": "/static/menu/images/cheesecake.jpeg"
+  },
+  {
+    "id": 9,
+    "name": "Fresh Lemonade",
+    "description": "Refreshing homemade lemonade with a hint of mint.",
+    "price": 40,
+    "category": "Drinks",
+    "image": "/static/menu/images/lemonade.jpeg"
+  },
+  {
+    "id": 10,
+    "name": "Iced Coffee",
+    "description": "Chilled coffee served over ice, perfect for a hot day.",
+    "price": 60,
+    "category": "Drinks",
+    "image": "/static/menu/images/icedcoffee.jpeg"
+  },
+  {
+    "id": 11,
+    "name": "Sparkling Water",
+    "description": "Carbonated mineral water, served chilled.",
+    "price": 30,
+    "category": "Drinks",
+    "image": "/static/menu/images/water.jpeg"
+  }
+] 

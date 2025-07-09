@@ -1,0 +1,212 @@
+{% extends 'menu/base.html' %}
+{% block title %}Book a Table - RestoDelight{% endblock %}
+{% block extra_head %}
+<style>
+    .book-hero {
+        background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+        min-height: 300px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .book-hero-overlay {
+        background: rgba(0,0,0,0.55);
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: 1;
+    }
+    .book-hero-content {
+        position: relative;
+        z-index: 2;
+        color: #fff;
+        text-align: center;
+    }
+    .glass-reserve-card {
+        background: rgba(255,255,255,0.18);
+        border-radius: 1.5rem;
+        box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255,255,255,0.25);
+        padding: 2.5rem 2rem 2rem 2rem;
+        margin-top: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .premium-message {
+        background: rgba(255, 215, 0, 0.12);
+        border-left: 5px solid #ffd700;
+        border-radius: 1rem;
+        padding: 1.5rem 1rem;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        color: #222;
+        box-shadow: 0 2px 8px rgba(255,215,0,0.08);
+        text-align: center;
+    }
+    .legacy-badge {
+        background: #ffd700;
+        color: #222;
+        font-weight: 600;
+        border-radius: 1rem;
+        padding: 0.5rem 1.5rem;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 8px rgba(255,215,0,0.13);
+        display: inline-block;
+        margin-bottom: 1rem;
+    }
+    .reserve-icon {
+        color: #f25161;
+        font-size: 1.5rem;
+        margin-right: 8px;
+    }
+    .dish-img {
+        width: 100%;
+        max-width: 320px;
+        border-radius: 1.5rem;
+        box-shadow: 0 4px 24px 0 rgba(31,38,135,0.13);
+        margin: 0 auto 0 auto;
+        display: block;
+    }
+    .right-premium-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        min-height: 400px;
+    }
+    @media (min-width: 992px) {
+        .book-row-equal {
+            display: flex;
+            align-items: stretch;
+        }
+        .book-row-equal > .col-lg-7,
+        .book-row-equal > .col-lg-5 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .glass-reserve-card, .right-premium-col {
+            height: 100%;
+            min-height: 100%;
+        }
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="book-hero mb-5">
+    <div class="book-hero-overlay"></div>
+    <div class="book-hero-content">
+        <span class="legacy-badge">Since 2005 &mdash; Premium Hospitality</span>
+        <h1 class="display-4 fw-bold mb-2">Book a Table</h1>
+        <p class="lead mb-0">Experience the legacy of RestoDelight &mdash; where every guest is family.</p>
+    </div>
+</div>
+<div class="container mb-5">
+    <div class="row justify-content-center book-row-equal">
+        <div class="col-lg-7">
+            <div class="mb-4"></div>
+            <div class="glass-reserve-card shadow-lg">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="form-label"><i class="bi bi-person-fill reserve-icon"></i>Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label"><i class="bi bi-envelope-fill reserve-icon"></i>Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label"><i class="bi bi-telephone-fill reserve-icon"></i>Phone</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="date" class="form-label"><i class="bi bi-calendar-event-fill reserve-icon"></i>Date</label>
+                            <input type="date" class="form-control" id="date" name="date" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="time" class="form-label"><i class="bi bi-clock-fill reserve-icon"></i>Time</label>
+                            <input type="time" class="form-control" id="time" name="time" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="guests" class="form-label"><i class="bi bi-people-fill reserve-icon"></i>Number of Guests</label>
+                        <input type="number" class="form-control" id="guests" name="guests" min="1" max="20" required>
+                    </div>
+                    <button type="submit" class="btn btn-warning w-100 py-2 fw-bold fs-5" style="color:#222;">Reserve Table</button>
+                </form>
+                <div class="text-center mt-4">
+                    <span class="text-muted small">Your comfort is our priority. For special requests, call us at <b>+91 80780 59702</b>.</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5 right-premium-col mt-5 mt-lg-0">
+            <div class="premium-message">
+                <h4 class="fw-bold mb-2" style="color:#f25161;"><i class="bi bi-star-fill me-2"></i>Customer First, Always</h4>
+                <p class="mb-2">At RestoDelight, every reservation is a promise of premium service. Our legacy is built on delighting guests and making every visit memorable. Let us know your preferences &mdash; we’ll make it special!</p>
+            </div>
+            <div class="p-4 mb-3 shadow-lg rounded-4" style="background: linear-gradient(135deg, #fffbe6 0%, #ffe5ec 100%); border: 1.5px solid #ffd700;">
+                <h5 class="fw-bold text-center mb-3" style="color:#f25161;"><i class="bi bi-people-fill me-2"></i>What Our Guests Say</h5>
+                <div class="text-center mb-3">
+                    <span class="fs-2 text-warning">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                    </span>
+                    <div class="fw-bold fs-5">4.8/5.0</div>
+                    <div class="small text-muted">Based on 1,200+ guest reviews</div>
+                </div>
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="text-center px-2">
+                                <i class="bi bi-quote text-warning fs-2"></i>
+                                <p class="fst-italic mb-1">“The best dining experience in Thrissur! The staff made us feel like family.”</p>
+                                <div class="text-end small text-muted">- Priya S.</div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="text-center px-2">
+                                <i class="bi bi-quote text-warning fs-2"></i>
+                                <p class="fst-italic mb-1">“Impeccable service and delicious food. Highly recommended!”</p>
+                                <div class="text-end small text-muted">- Kiran L.</div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="text-center px-2">
+                                <i class="bi bi-quote text-warning fs-2"></i>
+                                <p class="fst-italic mb-1">“A truly premium experience. Every detail was perfect!”</p>
+                                <div class="text-end small text-muted">- Arjun R.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

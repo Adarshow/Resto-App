@@ -1,0 +1,87 @@
+{% extends 'menu/base.html' %}
+{% load tz %}
+{% block title %}About - Restaurant{% endblock %}
+{% block extra_head %}
+<style>
+    .about-hero {
+        background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+        min-height: 300px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .about-hero-overlay {
+        background: rgba(0,0,0,0.55);
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: 1;
+    }
+    .about-hero-content {
+        position: relative;
+        z-index: 2;
+        color: #fff;
+        text-align: center;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="about-hero mb-5">
+    <div class="about-hero-overlay"></div>
+    <div class="about-hero-content">
+        <h1 class="display-4 fw-bold mb-2">About RestoDelight</h1>
+        <p class="lead mb-0">A legacy of taste, tradition, and togetherness since 2005.</p>
+    </div>
+</div>
+<div class="container mt-4 mb-5">
+    <div class="row align-items-center mb-5 pb-4 border-bottom">
+        <div class="col-md-6 mb-4 mb-md-0">
+            <h1 class="mb-3">Our Legacy</h1>
+            <p class="lead mb-4">Founded in 2005, RestoDelight has become a beloved culinary destination in Thrissur. Our story began with a simple dream: to bring people together over delicious food, warm hospitality, and a cozy atmosphere. Over the years, we have grown from a small family-run eatery to a vibrant restaurant known for our commitment to quality and tradition.</p>
+            <ul class="list-unstyled mt-4 mb-0">
+                <li class="mb-2"><strong>2005:</strong> RestoDelight opens its doors in Irinjalakuda.</li>
+                <li class="mb-2"><strong>2010:</strong> Awarded "Best New Restaurant" in Thrissur.</li>
+                <li class="mb-2"><strong>2018:</strong> Expanded to include a beautiful outdoor dining area.</li>
+                <li class="mb-2"><strong>2025:</strong> Celebrated 1,00,000th guest with a grand food festival.</li>
+            </ul>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="/static/menu/images/steak.jpeg" alt="Restaurant Legacy" class="img-fluid rounded shadow-lg" style="max-height:340px; object-fit:cover;">
+        </div>
+    </div>
+    <div class="row align-items-center mb-5 pb-4 border-bottom">
+        <div class="col-md-5 text-center mb-4 mb-md-0">
+            <img src="/static/menu/images/burger.jpeg" alt="Chef Alex Gourmet" class="img-fluid rounded-circle shadow" style="max-width:220px;">
+        </div>
+        <div class="col-md-7">
+            <h3 class="mb-3">Meet Our Chef</h3>
+            <p class="mb-3">Chef Alex Gourmet brings over 20 years of culinary expertise, blending classic techniques with modern flavors. His dedication to excellence is at the heart of every dish we serve. Chef Alex believes in the magic of fresh ingredients and the joy of sharing a meal with loved ones.</p>
+            <blockquote class="blockquote mb-0">
+                <p class="mb-0">“Cooking is not just about recipes, it’s about creating memories.”</p>
+                <footer class="blockquote-footer mt-1">Chef Alex Gourmet</footer>
+            </blockquote>
+        </div>
+    </div>
+    <div class="mb-5 pb-4 border-bottom">
+        <h3 class="text-center mb-4">Gallery of Our Signature Dishes</h3>
+        <div class="row g-4 justify-content-center">
+            <div class="col-6 col-md-3">
+                <img src="/static/menu/images/burger.jpeg" alt="Classic Burger" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-6 col-md-3">
+                <img src="/static/menu/images/steak.jpeg" alt="Grilled Chicken Steak" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-6 col-md-3">
+                <img src="/static/menu/images/cheesecake.jpeg" alt="Cheesecake" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-6 col-md-3">
+                <img src="/static/menu/images/Bruschetta.jpeg" alt="Bruschetta" class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-5 pt-3">
+        <h4 class="mb-3">Thank you for being part of our journey!</h4>
+        <p class="lead">We look forward to welcoming you and making every visit special.</p>
+    </div>
+</div>
+{% endblock %} 
