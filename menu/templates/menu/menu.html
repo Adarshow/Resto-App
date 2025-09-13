@@ -2,6 +2,14 @@
 {% load tz %}
 {% block title %}Menu - Restaurant{% endblock %}
 {% block extra_head %}
+    <style>
+        .card-img-top {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 1rem 1rem 0 0;
+        }
+    </style>
     <script>
         function filterMenu() {
             var input = document.getElementById('searchInput').value.toLowerCase();
@@ -43,14 +51,18 @@
                 }
             }
         </script>
-        {% regroup menu_items by category as category_list %}
+        {% regroup menu_items by category.name as category_list %}
         {% for cat in category_list %}
         <h3 class="mt-4">{{ cat.grouper }}</h3>
         <div class="row">
             {% for item in cat.list %}
-            <div class="col-md-4 mb-4 menu-item" data-category="{{ item.category }}" data-name="{{ item.name }}">
+            <div class="col-md-4 mb-4 menu-item" data-category="{{ item.category.name }}" data-name="{{ item.name }}">
                 <div class="card h-100">
-                    <img src="{{ item.image|default:'/static/menu/images/placeholder.jpg' }}" class="card-img-top" alt="{{ item.name }}">
+                    {% if item.image %}
+                        <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
+                    {% else %}
+                        <img src="/static/menu/images/placeholder.jpg" class="card-img-top" alt="{{ item.name }}">
+                    {% endif %}
                     <div class="card-body">
                         <h5 class="card-title">{{ item.name }}</h5>
                         <p class="card-text">{{ item.description }}</p>
