@@ -1,129 +1,92 @@
-# Resto-App
+# Resto – Django Restaurant Website
 
-A simple restaurant web application built with **Django**.
-Users can view menu items, and administrators can manage them via the Django admin interface.
-This project serves as a starting point for building a full-fledged restaurant management system.
+A full-featured restaurant website built with Django. Easily manage your menu, reservations, and customer messages through a secure admin panel.
 
 ---
 
-## 📌 Table of Contents
+## Features
 
-- [Features](#-features)
-- [Requirements](#-requirements)
-- [Installation & Setup](#-installation--setup)
-- [Usage](#-usage)
-- [Future Improvements](#-future-improvements)
-- [Contributing](#-contributing)
-- [License](#-license)
+- **Dynamic Menu:** Add, edit, and display menu items by category with images.
+- **Reservation System:** Customers can book tables; admins manage reservations.
+- **Contact Form:** Visitors send messages; admins view all submissions.
+- **Admin Panel:** Manage all content securely.
+- **Responsive Design:** Works on desktop and mobile.
 
 ---
 
-## ✨ Features
+## Getting Started
 
-- Django-powered backend
-- Display restaurant menu items (`menu` app)
-- SQLite database (lightweight, built-in, good for development)
-- HTML templates with Django templating
-- Django Admin for managing menu data
+### 1. Clone the Repository
 
----
+```bash
+git clone https://github.com/Adarshow/Resto-App2.git
+cd Resto-App2
+```
 
-## ⚙️ Requirements
+### 2. Install Dependencies
 
-- Python 3.x
-- Django (install via `pip install django`)
-- SQLite (bundled, no external DB setup needed)
+```bash
+pip install -r requirements.txt
+pip install Pillow
+```
 
----
+### 3. Apply Migrations
 
-## 🚀 Installation & Setup
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
 
-1.  **Clone the repository**
-    ```bash
-    git clone [https://github.com/Adarshow/Resto-App.git](https://github.com/Adarshow/Resto-App.git)
-    cd Resto-App
-    ```
+### 4. Create a Superuser
 
-2.  **Create and activate a virtual environment**
-    ```bash
-    # Create the environment
-    python -m venv venv
+```bash
+python manage.py createsuperuser
+```
 
-    # Activate on Linux/macOS
-    source venv/bin/activate
-    
-    # Activate on Windows
-    venv\Scripts\activate
-    ```
+### 5. Run the Server
 
-3.  **Install dependencies**
-    *If a `requirements.txt` file is present:*
-    ```bash
-    pip install -r requirements.txt
-    ```
-    *If `requirements.txt` is missing, install Django manually:*
-    ```bash
-    pip install django
-    ```
+```bash
+python manage.py runserver
+```
 
-4.  **Run migrations**
-    ```bash
-    python manage.py makemigrations
-    python manage.py migrate
-    ```
-
-5.  **(Optional) Load sample data**
-    *If a data fixture is available:*
-    ```bash
-    python manage.py loaddata <fixture_name>
-    ```
-
-6.  **Start the development server**
-    ```bash
-    python manage.py runserver
-    ```
-    Visit the site at: `http://127.0.0.1:8000/`
+Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/) for the site and [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/) for the admin panel.
 
 ---
 
-## 💻 Usage
+## Usage
 
--   Open the app in your browser to see the restaurant menu (usually at `/` or `/menu/`).
--   Access the Django admin panel at `/admin/` to log in and manage menu items.
--   Modify templates in the `menu/templates/` directory and static files to customize the UI.
-
----
-
-## 🔮 Future Improvements
-
--   **User Authentication:** Roles for customers & staff.
--   **Online Ordering:** A complete system with a shopping cart & checkout.
--   **Payment Gateway Integration:** Stripe, PayPal, etc.
--   **Enhanced Menu:** Add categories, item images, and detailed descriptions.
--   **UI/UX:** A responsive and modern design.
--   **Deployment:** Instructions for deploying to a cloud service (Heroku, AWS, etc.).
--   **Testing:** Automated unit and integration tests.
+- **Add Categories & Menu Items:** Use the admin panel to create categories and menu items. Upload images for each item.
+- **Manage Reservations & Messages:** View and manage all reservations and contact messages in the admin panel.
+- **Customize Content:** Edit templates and static files for your branding.
 
 ---
 
-## 🤝 Contributing
+## Project Structure
 
-Contributions are welcome!
-
-1.  **Fork** the repository.
-2.  **Create a new branch:**
-    ```bash
-    git checkout -b feature/your-feature
-    ```
-3.  **Commit your changes:**
-    ```bash
-    git commit -m "Added a new feature"
-    ```
-4.  **Push** to the branch and open a **Pull Request**.
+```
+restaurant_site/      # Django project settings
+menu/                 # Main app (models, views, templates)
+manage.py             # Django management script
+requirements.txt      # Python dependencies
+Procfile, render.yaml # Deployment configs
+```
 
 ---
 
-## 📜 License
+## Deployment
 
-This project is licensed under the **MIT License**.
-Feel free to use, modify, and distribute as per the license terms.
+Ready for deployment on Render, Heroku, or any cloud platform.  
+See `render.yaml` for Render deployment instructions.
+
+---
+
+## License
+
+MIT License
+
+---
+
+## Credits
+
+Developed by Adarshow  
+Powered by Django & Bootstrap
