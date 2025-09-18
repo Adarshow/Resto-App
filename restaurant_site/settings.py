@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-w_!y2a5=o00)76o7q8l!ljp1w^wljfz%x9kew7-)dzjscr4w%5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["resto-app-1-akse.onrender.com"]
 
 
 # Application definition
@@ -129,3 +129,4 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
