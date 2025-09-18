@@ -57,13 +57,9 @@ This project serves as a starting point for building a full-fledged restaurant m
     ```
 
 3.  **Install dependencies**
-    *If a `requirements.txt` file is present:*
-    ```bash
-    pip install -r requirements.txt
-    ```
-    *If `requirements.txt` is missing, install Django manually:*
     ```bash
     pip install django
+    pip install Pillow
     ```
 
 4.  **Run migrations**
@@ -71,11 +67,10 @@ This project serves as a starting point for building a full-fledged restaurant m
     python manage.py makemigrations
     python manage.py migrate
     ```
+5. Create a Superuser
 
-5.  **(Optional) Load sample data**
-    *If a data fixture is available:*
     ```bash
-    python manage.py loaddata <fixture_name>
+    python manage.py createsuperuser
     ```
 
 6.  **Start the development server**
